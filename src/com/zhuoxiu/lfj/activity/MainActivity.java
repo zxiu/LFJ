@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.zhuoxiu.lfj.R;
-import com.zhuoxiu.lfj.mail.MailWrapper;
+import com.zhuoxiu.lfj.mail.MailHelper;
 import com.zhuoxiu.lfj.site.Stepstone;
 import com.zhuoxiu.lfj.webkit.LFJWebView;
 
@@ -26,19 +26,19 @@ public class MainActivity extends FragmentActivity {
 		Button addImage = (Button) findViewById(R.id.send_email);
 		addImage.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				// new SendEmailTask().execute();
+				new SendEmailTask().execute();
 			}
 		});
-		wv = new LFJWebView(this);
-		wv.loadUrl(Stepstone.getInstance().getSearchUrl("kaiserslautern", "android"));
-		setContentView(wv);
+//		wv = new LFJWebView(this);
+//		wv.loadUrl(Stepstone.getInstance().getSearchUrl("kaiserslautern", "android"));
+//		setContentView(wv);
 	}
 
 	class SendEmailTask extends AsyncTask<Void, Void, Boolean> {
 
 		@Override
 		protected Boolean doInBackground(Void... params) {
-			MailWrapper m = new MailWrapper("xiuzhuo2012@gmail.com", "mpudytnsjtjyfejf");
+			MailHelper m = new MailHelper("xiuzhuo2012@gmail.com", "mpudytnsjtjyfejf");
 
 			String[] toArr = { "xiuzhuo@outlook.com" };
 			m.setTo(toArr);

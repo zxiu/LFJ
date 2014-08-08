@@ -22,7 +22,7 @@ import javax.mail.internet.MimeMultipart;
 /**
  * Created by zxui on 23/07/14.
  */
-public class MailWrapper extends Authenticator {
+public class MailHelper extends Authenticator {
     private String _user;
     private String _pass;
 
@@ -44,7 +44,7 @@ public class MailWrapper extends Authenticator {
     private Multipart _multipart;
 
 
-    public MailWrapper() {
+    public MailHelper() {
         _host = "smtp.gmail.com"; // default smtp server
         _port = "465"; // default smtp port
         _sport = "465"; // default socketfactory port
@@ -70,7 +70,7 @@ public class MailWrapper extends Authenticator {
         CommandMap.setDefaultCommandMap(mc);
     }
 
-    public MailWrapper(String user, String pass) {
+    public MailHelper(String user, String pass) {
         this();
         _user = user;
         _pass = pass;
