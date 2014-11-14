@@ -8,9 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import angel.zhuoxiu.library.mail.MailHelper;
 import com.zhuoxiu.lfj.R;
-import com.zhuoxiu.lfj.mail.MailHelper;
-import com.zhuoxiu.lfj.site.Stepstone;
 import com.zhuoxiu.lfj.webkit.LFJWebView;
 
 /**
@@ -38,16 +37,16 @@ public class MainActivity extends FragmentActivity {
 
 		@Override
 		protected Boolean doInBackground(Void... params) {
-			MailHelper m = new MailHelper("xiuzhuo2012@gmail.com", "mpudytnsjtjyfejf");
+			MailHelper mHelper = new MailHelper("xiuzhuo2012@gmail.com", "mpudytnsjtjyfejf");
 
 			String[] toArr = { "xiuzhuo@outlook.com" };
-			m.setTo(toArr);
-			m.setFrom("xiuzhuo2012@gmail.com");
-			m.setSubject("This is an email sent using my Mail JavaMail wrapper from an Android device.");
-			m.setBody("Email body.");
+			mHelper.setTo(toArr);
+			mHelper.setFrom("xiuzhuo2012@gmail.com");
+			mHelper.setSubject("This is an email sent using my Mail JavaMail wrapper from an Android device.");
+			mHelper.setBody("Email body.");
 			boolean result = false;
 			try {
-				result = m.send();
+				result = mHelper.send();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
